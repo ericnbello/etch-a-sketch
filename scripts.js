@@ -55,6 +55,11 @@ function sketchColor() {
     e.target.style.color = "transparent";
     sketchpad.style.backgroundColor = "white";
   }); 
+  pixel.addEventListener("touchmove", function(e) {
+    e.target.style.backgroundColor = "black";
+    e.target.style.color = "transparent";
+    sketchpad.style.backgroundColor = "white";
+  });
 }
 
 // Creating Rainbow Mode with Random Colors 
