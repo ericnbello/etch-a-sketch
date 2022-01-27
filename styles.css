@@ -30,10 +30,10 @@
   }
 
   input[type=color] {
-    @apply w-10 h-10;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 1rem 0 1rem;
+    @apply w-10 h-10 rounded-full hidden mx-4;
+    /* border-radius: 50%; */
+    /* overflow: hidden;
+    margin: 0 1rem 0 1rem;*/
   }
 
   input[type=color]::-webkit-color-swatch {
