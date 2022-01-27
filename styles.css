@@ -30,8 +30,7 @@
   }
 
   input[type=color] {
-    width: 45px;
-    height: 45px; 
+    @apply w-10 h-10;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 1rem 0 1rem;
