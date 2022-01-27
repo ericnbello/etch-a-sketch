@@ -1,14 +1,3 @@
-function include(file) {
-  
-  let script  = document.createElement('script');
-  script.src  = file;
-  script.type = 'text/javascript';
-  script.defer = true;
-  
-  document.getElementsByTagName('head').item(0).appendChild(script);
-}
-include('colorpicker.js')
-
 // Create sketch pad 
 const sketchpad = document.getElementById("sketchpad");
 
@@ -40,23 +29,19 @@ slider.oninput = function() {
 
 const pixel = document.querySelector("div");
 
-// Color picker 
-// ColorPicker(
-//   document.getElementById('slide'),
-//   document.getElementById('picker'),
-//   function(hex, hsv, rgb) {
-//     document.pixel.style.backgroundColor = hex;
-//   });
+// Get user input from color picker
+const colorDefault = document.getElementById("colorPicker").value;
+sketchColor(colorDefault);
+
+colorPicker.oninput = function() {
+  const pickedColor = this.value;
+  sketchColor(pickedColor)
+}
 
 // Drawing Mode Buttons
-function sketchColor() {
+function sketchColor(color) {
   pixel.addEventListener("mouseover", function(e) {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "transparent";
-    sketchpad.style.backgroundColor = "white";
-  }); 
-  pixel.addEventListener("touchmove", function(e) {
-    e.target.style.backgroundColor = "black";
+    e.target.style.backgroundColor = color;
     e.target.style.color = "transparent";
     sketchpad.style.backgroundColor = "white";
   });
@@ -89,7 +74,6 @@ function sketchEraser() {
 
 //Reset button to clear the sketchpad
 const resetButton = document.getElementById("reset");
-// const sketchContainer = document.getElementById("sketch-container")
 
 function reset() {
   resetButton.addEventListener("click", function(e) {

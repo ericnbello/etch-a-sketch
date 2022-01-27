@@ -11,47 +11,42 @@
 </head>
 <body>
     <header>
-        <h1 class="flex font-bold text-6xl bg-gray-100 text-slate-900 justify-center py-6">Etch-a-sketch</h1>
+        <h1 class="flex font-bold bg-gray-100 text-slate-900 justify-center py-3 w-full text-8xl">Etch-a-sketch</h1>
     </header>
-    <main class="bg-gray-100 sm:flex-row-reverse sm:flex sm:space-between justify-center items-center gap-x-20 p-10">
+    <main class="bg-gray-100 sm:flex-row-reverse sm:flex sm:space-between justify-center items-center gap-x-20 p-6 text-2xl">
         <div id="sketch-container" class="w-full h-1/4 sm:w-2/3">
-            <div id="sketchpad" class="grid bg-white border-2 items-center h-96 w-full sm:w-full sm:h-full shadow-lg">
+            <div id="sketchpad" class="bg-white border-2 h-96 w-full sm:w-full sm:h-full shadow-lg">
             </div>
         </div>
-        <div id="modes-container" class="block w-full sm:w-1/3 p-10">
-            <!-- <h2 class="text-center font-bold text-2xl">Play Options</h2> -->
-            <!-- <p>Choose a Color</p> -->
-            <div id="picker"></div>
-            <div id="slide"></div>
+        <div id="modes-container" class="flex justify-center w-full sm:w-1/3 p-10">
             <div id="btn-container" class="">
-                <button class="block my-10 w-full border-black focus:border-indigo-500 border-2 bg-transparent text-black focus:bg-indigo-500 hover:bg-indigo-700 hover:text-white focus:text-white hover:p-3 font-bold py-2 px-4 rounded-2xl"
-                type="button" 
-                onclick="sketchColor()"
-                >
-                    Custom Color Mode
+                <button class="text-center flex items-center my-10 w-full border-black focus:border-indigo-500 border-2 bg-transparent text-black hover:bg-transparent hover:p-3 focus:bg-indigo-500 focus:text-white focus:p-3 font-bold py-2 px-4 rounded-2xl">
+                    <label for="colorPicker" class="">Choose a custom color</label>
+                    <input id="colorPicker" type="color" value="#000000" user-edited="yes"
+                    class="">
                 </button>
-                <button class="block my-10 w-full border-black focus:border-indigo-500 border-2 bg-transparent text-black focus:bg-indigo-500 hover:bg-indigo-700 hover:text-white focus:text-white hover:p-3 font-bold py-2 px-4 rounded-2xl"
+                <button class="block my-10 w-full border-black focus:border-indigo-500 border-2 bg-transparent text-black focus:bg-indigo-500 hover:bg-transparent hover:p-3 focus:text-white focus:p-3 font-bold py-2 px-4 rounded-2xl"
                         type="button" 
                         onclick="sketchRainbow()"
                 >
                     Rainbow Mode
                 </button>
-                <button class="block my-10 w-full border-black focus:border-indigo-500 border-2 bg-transparent text-black focus:bg-indigo-500 hover:bg-indigo-700 hover:text-white focus:text-white hover:p-3 font-bold py-2 px-4 rounded-2xl"
+                <button class="block my-10 w-full border-black focus:border-indigo-500 border-2 bg-transparent text-black focus:bg-indigo-500 hover:bg-transparent hover:p-3 focus:text-white focus:p-3 font-bold py-2 px-4 rounded-2xl"
                         type="button" 
                         onclick="sketchEraser()"
                 >
                     Eraser Mode
                 </button>
-                <button id="reset" class="block w-full my-10 border-black border-2 bg-transparent text-black hover:bg-indigo-700 hover:text-white hover:p-3 font-bold py-2 px-4 rounded-2xl"
+                <button id="reset" class="block w-full my-10 border-black border-2 bg-transparent text-black hover:bg-transparent hover:p-3 focus:p-3 font-bold py-2 px-4 rounded-2xl"
                         type="button" 
                         onclick="reset()"
                 >
                     Reset Sketch
                 </button>
-            </div>
-            <div class="slidecontainer w-full py-6">
-                <p class="text-center font-bold py-3" id="gridSize"></p>
-                <input type="range" min="1" max="50" value="25" class="slider appearance-none w-full h-2 bg-[#d3d3d3] outline-none opacity-70 transition-opacity hover:opacity-100 cursor-pointer rounded-lg" id="inputSlider">
+                <div class="slidecontainer w-full sm:block py-6">
+                    <p class="text-center font-bold py-3" id="gridSize"></p>
+                    <input type="range" min="1" max="50" value="25" class="slider appearance-none w-full h-2 bg-[#d3d3d3] outline-none opacity-70 transition-opacity hover:opacity-100 cursor-pointer rounded-lg" id="inputSlider">
+                </div>
             </div>
         </div>
     </main>
@@ -59,8 +54,8 @@
     <script src="./scripts.js"></script>
     <script src="colorpicker.js"></script>
 </body>
-<footer class="bg-indigo-500 text-white flex gap-2 text-xl justify-center m-0 p-10">
-        <p class=" inline-flex  mt-1">
+<footer class="bg-indigo-500 text-white flex gap-2 text-3xl justify-center m-0 p-10">
+        <p class="inline-flex mt-1">
             Copyright &copy; 
             <script>document.write(new Date().getFullYear());</script> 
             - ericnbello 

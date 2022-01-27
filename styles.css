@@ -1,38 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
   }
 
-  body {
-      height: 100vh;
-      padding: 0;
-      margin: 0;
+  html {
+    font-family: 'Dongle', sans-serif;
   }
-  @media (min-width: 640px) {
-    #sketch-container {
-        height: 40rem;
-        width: 40rem;
-    }         
-}
+
+  body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
 
   #sketchpad {
-    @apply grid;
+    @apply inline-grid;
     grid-template-rows: repeat(var(--grid-rows), minmax(0, 1fr));
     grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
   }
 
   .pixel {
-    /* box-sizing: border-box; */
-    /* height: auto; */
-    padding: 0;
-    margin: 0;
+    @apply box-border p-1 text-transparent;
+  }
+
+  input[type=color] {
+    width: 45px;
+    height: 45px; 
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 1rem 0 1rem;
+  }
+
+  input[type=color]::-webkit-color-swatch {
     border: none;
-    text-align: center;
-    color: transparent;
+    border-radius: 50%;
+    padding: 0;
+  }
+  
+  input[type=color]::-webkit-color-swatch-wrapper {
+    border: none;
+    border-radius: 50%;
+    padding: 0;
   }
 
   .slider {
@@ -40,18 +53,25 @@
   }
 
   .slider::-webkit-slider-thumb {
-    @apply rounded-full appearance-none bg-indigo-900 cursor-pointer;
-    -webkit-appearance: none; /* Override default look */
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
+    @apply rounded-full appearance-none bg-indigo-500 cursor-pointer;
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
   }
   
   .slider::-moz-range-thumb {
-    @apply rounded-full appearance-none bg-indigo-900 cursor-pointer;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
+    @apply rounded-full appearance-none bg-indigo-500 cursor-pointer;
+    width: 25px;
+    height: 25px;
   }
 
   .reset {
     @apply bg-none;
   }
+
+@media (min-width: 640px) {
+    #sketch-container {
+        height: 40rem;
+        width: 40rem;
+    }         
+}
